@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Letters For You, Neha zii 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --red:#8b1a1a;--red-dark:#5a0e0e;--red-mid:#a52714;
+  --cream:#f5ede3;--cream-dark:#e8d9c5;--gold:#c9a96e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;overflow-x:hidden}
+
+.velvet-bg{
+  background-color:#6b0000;
+  background-image:
+    repeating-linear-gradient(135deg,rgba(0,0,0,0.12) 0px,rgba(0,0,0,0.12) 1px,transparent 1px,transparent 6px),
+    repeating-linear-gradient(45deg,rgba(255,255,255,0.03) 0px,rgba(255,255,255,0.03) 1px,transparent 1px,transparent 6px),
+    radial-gradient(ellipse at 30% 20%,rgba(180,0,0,0.4) 0%,transparent 60%),
+    radial-gradient(ellipse at 70% 80%,rgba(100,0,0,0.5) 0%,transparent 60%);
+  background-size:8px 8px,8px 8px,100% 100%,100% 100%;
+}
+
+.page{display:none;min-height:100vh;position:relative;flex-direction:column;align-items:center;justify-content:center}
+.page.active{display:flex}
+
+/* ── PAGE 1 ── */
+#page1{padding:40px 20px}
+.hero-title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(70px,14vw,110px);
+  color:var(--cream);text-align:center;line-height:1;
+  text-shadow:0 0 60px rgba(220,160,100,0.5),0 2px 4px rgba(0,0,0,0.8);
+  animation:fadeDown 1.2s ease both;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;color:rgba(245,237,227,0.6);letter-spacing:3px;
+  text-align:center;margin-top:10px;animation:fadeDown 1.4s ease both;
+}
+.hero-env-wrap{
+  position:relative;margin:50px auto 0;
+  width:320px;height:260px;cursor:pointer;
+  animation:floatUp 1.6s ease both;
+}
+.hero-env-wrap:hover .env-body{transform:scale(1.04);box-shadow:0 30px 80px rgba(0,0,0,0.7);}
+.hero-env-wrap:hover .hero-cta{opacity:1;transform:translateY(0);}
+.env-body{
+  position:relative;width:320px;height:220px;
+  background:linear-gradient(160deg,#f0e8d5 60%,#e8d8bb);
+  border-radius:4px 4px 8px 8px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.4);
+  transition:transform 0.4s ease,box-shadow 0.4s ease;
+}
+.env-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:160px solid transparent;border-right:160px solid transparent;border-top:110px solid #e0d4bc;transform-origin:top center;}
+.env-left{position:absolute;bottom:0;left:0;width:0;height:0;border-left:0 solid transparent;border-bottom:110px solid #d8ccb4;border-right:160px solid transparent;}
+.env-right{position:absolute;bottom:0;right:0;width:0;height:0;border-right:0 solid transparent;border-bottom:110px solid #d0c4ac;border-left:160px solid transparent;}
+.env-bottom{position:absolute;bottom:0;left:0;width:320px;height:120px;background:linear-gradient(180deg,#e8d8bb,#decca0);border-radius:0 0 8px 8px;}
+.wax-seal{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:90px;height:90px;z-index:10;
+  animation:sealPop 0.5s 1.8s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.wax-seal svg{width:90px;height:90px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))}
+.hero-cta{
+  position:absolute;bottom:-40px;left:50%;
+  transform:translate(-50%,8px);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;color:var(--gold);letter-spacing:2px;
+  opacity:0;transition:opacity 0.4s,transform 0.4s;
+  white-space:nowrap;pointer-events:none;
+}
+
+/* ── PAGE 2 ── */
+#page2{padding:40px 20px}
+.choose-title{
+  font-family:'Great Vibes',cursive;font-size:clamp(50px,10vw,80px);
+  color:var(--cream);text-align:center;
+  text-shadow:0 0 40px rgba(220,160,100,0.4),0 2px 4px rgba(0,0,0,0.8);
+  margin-bottom:8px;animation:fadeDown 0.8s ease both;
+}
+.choose-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16px;color:rgba(245,237,227,0.55);letter-spacing:3px;
+  text-align:center;margin-bottom:50px;animation:fadeDown 1s ease both;
+}
+.cards-row{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;align-items:flex-start;}
+.choice-card{display:flex;flex-direction:column;align-items:center;gap:14px;cursor:pointer;animation:fadeUp 0.8s ease both;}
+.choice-card:nth-child(2){animation-delay:0.12s}
+.choice-card:nth-child(3){animation-delay:0.24s}
+.card-env{
+  position:relative;width:200px;height:145px;
+  background:linear-gradient(160deg,#f0e8d5 60%,#e8d8bb);
+  border-radius:3px 3px 6px 6px;
+  box-shadow:0 16px 48px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.4);
+  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.35s ease;
+  overflow:hidden;
+}
+.choice-card:hover .card-env{transform:translateY(-10px) scale(1.04);box-shadow:0 30px 70px rgba(0,0,0,0.7);}
+.card-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:100px solid transparent;border-right:100px solid transparent;border-top:70px solid #e0d4bc;}
+.card-left{position:absolute;bottom:0;left:0;width:0;height:0;border-left:0 solid transparent;border-bottom:72px solid #d8ccb4;border-right:100px solid transparent;}
+.card-right{position:absolute;bottom:0;right:0;width:0;height:0;border-right:0 solid transparent;border-bottom:72px solid #d0c4ac;border-left:100px solid transparent;}
+.card-bottom{position:absolute;bottom:0;left:0;width:200px;height:80px;background:linear-gradient(180deg,#e8d8bb,#decca0);border-radius:0 0 6px 6px;}
+.card-seal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;width:56px;height:56px;}
+.card-seal svg{width:56px;height:56px;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5))}
+.card-label{
+  font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;
+  color:var(--cream);letter-spacing:1.5px;text-align:center;
+  text-shadow:0 1px 3px rgba(0,0,0,0.6);transition:color 0.3s;
+}
+.choice-card:hover .card-label{color:var(--gold);}
+
+/* ── PAGE 3 SORRY LETTER ── */
+#page3{padding:80px 20px 60px;justify-content:flex-start}
+.letter-paper{
+  background:linear-gradient(170deg,#fdf6ec,#f5e9d4);
+  border-radius:2px;padding:50px 52px 50px 80px;
+  max-width:580px;width:100%;
+  box-shadow:0 20px 80px rgba(0,0,0,0.7),inset 0 0 0 1px rgba(180,140,80,0.3);
+  position:relative;animation:paperReveal 0.8s ease both;
+  font-family:'Cormorant Garamond',serif;line-height:1.9;margin:0 auto;
+}
+.letter-paper::before{content:'';position:absolute;left:62px;top:0;bottom:0;width:1px;background:rgba(180,100,100,0.3);}
+.letter-lines{
+  position:absolute;inset:0;pointer-events:none;border-radius:2px;
+  background-image:repeating-linear-gradient(transparent,transparent 37px,rgba(180,140,80,0.13) 37px,rgba(180,140,80,0.13) 38px);
+}
+.letter-date{font-size:13px;color:#8b6a40;letter-spacing:2px;text-align:right;margin-bottom:28px;}
+.letter-greeting{font-family:'Great Vibes',cursive;font-size:40px;color:#7a1a1a;margin-bottom:18px;}
+.letter-body{font-size:17px;color:#3a2510;font-weight:300;}
+.letter-body p{margin-bottom:20px;}
+.letter-sign{font-family:'Great Vibes',cursive;font-size:34px;color:#7a1a1a;margin-top:24px;}
+
+.back-btn{
+  position:fixed;top:24px;left:24px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;color:rgba(245,237,227,0.7);letter-spacing:2px;
+  cursor:pointer;border:1px solid rgba(245,237,227,0.2);
+  background:none;padding:8px 16px;border-radius:30px;
+  backdrop-filter:blur(4px);transition:color 0.3s,border-color 0.3s;z-index:200;
+}
+.back-btn:hover{color:var(--gold);border-color:var(--gold);}
+
+/* ── PAGE 4 BOUQUET ── */
+#page4{padding:40px 20px}
+.bouquet-title{
+  font-family:'Great Vibes',cursive;font-size:clamp(50px,10vw,78px);
+  color:var(--cream);text-align:center;
+  text-shadow:0 0 40px rgba(220,160,100,0.4),0 2px 4px rgba(0,0,0,0.8);
+  margin-bottom:10px;animation:fadeDown 0.8s ease both;
+}
+.bouquet-msg{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;color:rgba(245,237,227,0.6);letter-spacing:2px;
+  text-align:center;max-width:420px;line-height:1.8;
+  margin:0 auto 40px;animation:fadeDown 1s ease both;
+}
+.bouquet-stage{
+  position:relative;width:260px;height:360px;margin:0 auto;
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,0.65);
+  animation:floatUp 1s ease both;
+}
+.bouquet-stage img{width:100%;height:100%;object-fit:cover;display:block;}
+.petal{
+  position:fixed;border-radius:50% 50% 50% 0;
+  opacity:0;pointer-events:none;z-index:999;
+  animation:petalFall linear infinite;
+}
+
+/* ── PAGE 5 FRAME ── */
+#page5{padding:60px 20px}
+.frame-title{
+  font-family:'Great Vibes',cursive;font-size:clamp(50px,10vw,78px);
+  color:var(--cream);text-align:center;
+  text-shadow:0 0 40px rgba(220,160,100,0.4),0 2px 4px rgba(0,0,0,0.8);
+  margin-bottom:10px;animation:fadeDown 0.8s ease both;
+}
+.frame-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16px;color:rgba(245,237,227,0.55);letter-spacing:2px;
+  text-align:center;margin-bottom:36px;animation:fadeDown 1s ease both;
+}
+.photo-frame{position:relative;width:280px;margin:0 auto;animation:fadeUp 1s ease both;}
+.frame-border{
+  background:linear-gradient(135deg,#c9a96e,#8b6a2e,#c9a96e,#f0d090,#8b6a2e);
+  padding:18px;border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,220,120,0.5),inset 0 -1px 0 rgba(80,40,0,0.4);
+}
+.frame-inner{
+  background:#1a0a0a;width:100%;
+  padding-bottom:120%;position:relative;border-radius:2px;overflow:hidden;
+}
+#framePhoto{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block;
+}
+.frame-caption{margin-top:22px;text-align:center;font-family:'Great Vibes',cursive;font-size:28px;color:var(--gold);text-shadow:0 0 20px rgba(201,169,110,0.4);}
+.frame-caption-sub{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(245,237,227,0.4);letter-spacing:2px;margin-top:6px;}
+.frame-fallback{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;
+  color:rgba(245,237,227,0.25);font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:13px;letter-spacing:2px;text-align:center;padding:20px;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sealPop{from{opacity:0;transform:translate(-50%,-50%) scale(0)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes paperReveal{from{opacity:0;transform:translateY(40px) rotate(-1deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes petalFall{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg)}
+  10%{opacity:0.9}90%{opacity:0.7}
+  100%{opacity:0;transform:translate(var(--dx),100vh) rotate(var(--dr))}
+}
+@keyframes envOpenFlap{0%{transform:rotateX(0deg)}100%{transform:rotateX(-160deg)}}
+@keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes sparklePop{
+  0%{opacity:1;transform:scale(0)}50%{opacity:1}
+  100%{opacity:0;transform:scale(1) translate(var(--sx),var(--sy))}
+}
+
+.hero-env-wrap.opening .env-flap{animation:envOpenFlap 0.7s ease forwards;transform-style:preserve-3d;}
+.hero-env-wrap.floating .env-body{animation:gentleFloat 3s ease-in-out infinite;}
+.sparkle{position:fixed;width:5px;height:5px;border-radius:50%;pointer-events:none;animation:sparklePop 1s ease forwards;}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
+::-webkit-scrollbar-thumb{background:rgba(180,80,80,0.5);border-radius:3px}
+
+@media(max-width:600px){
+  .cards-row{gap:16px}
+  .card-env{width:150px;height:108px}
+  .card-flap{border-left-width:75px;border-right-width:75px;border-top-width:52px}
+  .card-left{border-bottom-width:54px;border-right-width:75px}
+  .card-right{border-bottom-width:54px;border-left-width:75px}
+  .card-bottom{width:150px;height:60px}
+  .letter-paper{padding:36px 20px 36px 46px}
+  .letter-paper::before{left:32px}
+  .hero-env-wrap{width:270px}
+  .env-body{width:270px}
+  .env-flap{border-left-width:135px;border-right-width:135px}
+  .env-left{border-right-width:135px}
+  .env-right{border-left-width:135px}
+  .env-bottom{width:270px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ PAGE 1 — HERO ═══════════════════════ -->
+<div id="page1" class="page velvet-bg active">
+  <div class="hero-title">Letters For You</div>
+  <div class="hero-sub">written just for you, Neha zii ✦</div>
+
+  <div class="hero-env-wrap" id="heroEnv" onclick="openHeroEnv()">
+    <div class="env-body">
+      <div class="env-flap"></div>
+      <div class="env-left"></div>
+      <div class="env-right"></div>
+      <div class="env-bottom"></div>
+      <div class="wax-seal">
+        <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="45" cy="45" r="42" fill="#7b1010"/>
+          <circle cx="45" cy="45" r="38" fill="#8b1a1a"/>
+          <circle cx="45" cy="45" r="34" fill="#9b1f1f" opacity="0.45"/>
+          <path d="M45 63 C45 63 21 48 21 33 C21 25 28 19 35 19 C39.5 19 43 22 45 25.5 C47 22 50.5 19 55 19 C62 19 69 25 69 33 C69 48 45 63 45 63Z" fill="#c0392b" stroke="#6b0808" stroke-width="1"/>
+          <path d="M37 33 Q34 26 40 24 Q37 30 42 32" fill="none" stroke="#f0b0b0" stroke-width="1.2" opacity="0.8"/>
+          <path d="M53 33 Q56 26 50 24 Q53 30 48 32" fill="none" stroke="#f0b0b0" stroke-width="1.2" opacity="0.8"/>
+          <circle cx="45" cy="37" r="2.5" fill="#f0b0b0" opacity="0.6"/>
+          <circle cx="45" cy="45" r="41" fill="none" stroke="#6b0808" stroke-width="1.5" stroke-dasharray="4 3"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-cta">✦ click to open ✦</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ PAGE 2 — CHOOSE ═══════════════════════ -->
+<div id="page2" class="page velvet-bg">
+  <button class="back-btn" onclick="goPage(1)">← back</button>
+  <div class="choose-title">Choose Your Letter</div>
+  <div class="choose-sub">each one written just for you, Neha zii</div>
+  <div class="cards-row">
+
+    <div class="choice-card" onclick="goPage(3)">
+      <div class="card-env">
+        <div class="card-flap"></div><div class="card-left"></div>
+        <div class="card-right"></div><div class="card-bottom"></div>
+        <div class="card-seal">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" fill="#7b1010"/>
+            <circle cx="28" cy="28" r="22" fill="#8b1a1a"/>
+            <path d="M28 39 C28 39 13 30 13 20 C13 15 17 12 21 12 C24 12 26.5 14 28 16.5 C29.5 14 32 12 35 12 C39 12 43 15 43 20 C43 30 28 39 28 39Z" fill="#c0392b" stroke="#6b0808" stroke-width="0.5"/>
+            <circle cx="28" cy="28" r="25" fill="none" stroke="#6b0808" stroke-width="1" stroke-dasharray="3 2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-label">A letter of sorry</div>
+    </div>
+
+    <div class="choice-card" onclick="goPage(4)">
+      <div class="card-env">
+        <div class="card-flap"></div><div class="card-left"></div>
+        <div class="card-right"></div><div class="card-bottom"></div>
+        <div class="card-seal">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" fill="#7b1010"/>
+            <circle cx="28" cy="28" r="22" fill="#8b1a1a"/>
+            <line x1="28" y1="43" x2="28" y2="28" stroke="#2d5a1b" stroke-width="2"/>
+            <line x1="28" y1="37" x2="21" y2="30" stroke="#2d5a1b" stroke-width="1.5"/>
+            <line x1="28" y1="37" x2="35" y2="30" stroke="#2d5a1b" stroke-width="1.5"/>
+            <ellipse cx="28" cy="23" rx="5" ry="8" fill="#c0392b"/>
+            <ellipse cx="22" cy="25" rx="4" ry="7" fill="#a93226" transform="rotate(-15 22 25)"/>
+            <ellipse cx="34" cy="25" rx="4" ry="7" fill="#a93226" transform="rotate(15 34 25)"/>
+            <circle cx="28" cy="28" r="25" fill="none" stroke="#6b0808" stroke-width="1" stroke-dasharray="3 2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-label">Virtual bouquet for you</div>
+    </div>
+
+    <div class="choice-card" onclick="goPage(5)">
+      <div class="card-env">
+        <div class="card-flap"></div><div class="card-left"></div>
+        <div class="card-right"></div><div class="card-bottom"></div>
+        <div class="card-seal">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" fill="#7b1010"/>
+            <circle cx="28" cy="28" r="22" fill="#8b1a1a"/>
+            <rect x="15" y="18" width="26" height="20" rx="2" fill="none" stroke="#f0d090" stroke-width="1.8"/>
+            <circle cx="28" cy="28" r="5.5" fill="none" stroke="#f0d090" stroke-width="1.5"/>
+            <circle cx="28" cy="28" r="2" fill="#f0d090" opacity="0.7"/>
+            <rect x="22" y="14" width="12" height="5" rx="1.5" fill="none" stroke="#f0d090" stroke-width="1.2"/>
+            <circle cx="28" cy="28" r="25" fill="none" stroke="#6b0808" stroke-width="1" stroke-dasharray="3 2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-label">A photo frame for us</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════ PAGE 3 — SORRY LETTER ═══════════════════════ -->
+<div id="page3" class="page velvet-bg">
+  <button class="back-btn" onclick="goPage(2)">← back</button>
+  <div class="letter-paper">
+    <div class="letter-lines"></div>
+    <div class="letter-date" id="letterDate"></div>
+    <div class="letter-greeting">My dearest Neha zii,</div>
+    <div class="letter-body">
+      <p>I have been sitting with these words for a long time, turning them over and over in my heart — not knowing how to begin. So I am just going to say what needs to be said, honestly and fully, without holding anything back.</p>
+      <p>I am sorry. I am truly, deeply sorry for hurting you. Not in the small way that fades by morning — but in the way that stays. The kind that makes me look at myself and feel ashamed of the moments I was not who you deserved.</p>
+      <p>You have always given me so much — your patience, your warmth, your laughter, your love. And there were moments when I took all of that for granted. I did things that made you feel less than you are, and I hate myself for that. You never deserved any of it.</p>
+      <p>You are not just someone I love, Neha zii. You are the person who makes ordinary days feel like something worth remembering. The way you smile, the way you care, the way you still show up even when things are hard — it means more to me than I have ever managed to say properly.</p>
+      <p>I am not making excuses. There are none good enough. I am simply asking — gently, with everything I have — for your forgiveness. Not because I deserve it, but because I am committed to being better. For you. For us.</p>
+      <p>I am working on myself every single day. And I need you to know — no matter what — my love for you is not just a feeling that comes and goes. It is a decision I make every morning, every evening, and every quiet moment in between.</p>
+      <p>You mean the world to me. You always have. You always will.</p>
+    </div>
+    <div class="letter-sign">Forever yours, Sudhanshu</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ PAGE 4 — BOUQUET ═══════════════════════ -->
+<div id="page4" class="page velvet-bg">
+  <button class="back-btn" onclick="goPage(2)">← back</button>
+  <div class="bouquet-title">For You, Neha zii</div>
+  <div class="bouquet-msg">A bouquet picked with love — from Sudhanshu's heart to yours.<br/>May every petal remind you how much you are adored. 🌷</div>
+
+  <div class="bouquet-stage" id="bouquetStage">
+    <!--
+      ════ HOW TO ADD YOUR BOUQUET PHOTO ════
+      1. Name your photo: bouquet.jpg
+      2. Put it in the SAME FOLDER as this index.html file
+      3. It will automatically appear here!
+      If the image is missing, a hand-drawn bouquet shows instead.
+    -->
+    <img src="bouquet.jpg" alt="A bouquet for Neha zii" id="bouquetImg"
+         onerror="this.style.display='none';document.getElementById('bouquetSVG').style.display='block'"/>
+    <div id="bouquetSVG" style="display:none;width:100%;height:100%;background:#0d0000;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg" width="240" height="340">
+        <polygon points="30,340 130,170 230,340" fill="#e8dccb" opacity="0.9"/>
+        <polygon points="30,340 80,195 130,235 130,340" fill="#d4c4a8"/>
+        <polygon points="230,340 180,195 130,235 130,340" fill="#c8b898"/>
+        <line x1="60" y1="310" x2="90" y2="210" stroke="rgba(120,90,60,0.12)" stroke-width="1"/>
+        <line x1="90" y1="315" x2="115" y2="225" stroke="rgba(120,90,60,0.12)" stroke-width="1"/>
+        <line x1="170" y1="315" x2="145" y2="225" stroke="rgba(120,90,60,0.1)" stroke-width="1"/>
+        <ellipse cx="130" cy="348" rx="22" ry="12" fill="none" stroke="#c8b898" stroke-width="2.5"/>
+        <path d="M108 348 Q100 333 115 328 Q125 326 130 338" fill="#d4c4a8" stroke="#b8a888" stroke-width="1"/>
+        <path d="M152 348 Q160 333 145 328 Q135 326 130 338" fill="#d4c4a8" stroke="#b8a888" stroke-width="1"/>
+        <circle cx="130" cy="342" r="5" fill="#c8b898"/>
+        <path d="M122 352 Q115 368 110 374" fill="none" stroke="#c8b898" stroke-width="2"/>
+        <path d="M138 352 Q145 368 150 374" fill="none" stroke="#c8b898" stroke-width="2"/>
+        <line x1="100" y1="170" x2="100" y2="285" stroke="#2d5a1b" stroke-width="3" stroke-linecap="round"/>
+        <line x1="115" y1="164" x2="115" y2="280" stroke="#2d5a1b" stroke-width="3" stroke-linecap="round"/>
+        <line x1="130" y1="158" x2="130" y2="275" stroke="#2d5a1b" stroke-width="3" stroke-linecap="round"/>
+        <line x1="145" y1="164" x2="145" y2="280" stroke="#2d5a1b" stroke-width="3" stroke-linecap="round"/>
+        <line x1="160" y1="170" x2="160" y2="285" stroke="#2d5a1b" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 238 Q82 228 85 215 Q100 226 100 238Z" fill="#3a7a25"/>
+        <path d="M160 238 Q178 228 175 215 Q160 226 160 238Z" fill="#3a7a25"/>
+        <path d="M115 233 Q130 220 132 208 Q118 220 115 233Z" fill="#3a7a25"/>
+        <path d="M145 233 Q130 220 128 208 Q142 220 145 233Z" fill="#3a7a25"/>
+        <g transform="translate(100,166)"><ellipse cx="0" cy="0" rx="10" ry="18" fill="#c0392b" transform="rotate(-10)"/><ellipse cx="-8" cy="5" rx="8" ry="15" fill="#a93226" transform="rotate(-25 -8 5)"/><ellipse cx="8" cy="5" rx="8" ry="15" fill="#922b21" transform="rotate(25 8 5)"/><ellipse cx="0" cy="-8" rx="6" ry="10" fill="#e74c3c" opacity="0.45"/></g>
+        <g transform="translate(115,158)"><ellipse cx="0" cy="0" rx="10" ry="18" fill="#c0392b" transform="rotate(-5)"/><ellipse cx="-8" cy="5" rx="8" ry="15" fill="#a93226" transform="rotate(-20 -8 5)"/><ellipse cx="8" cy="5" rx="8" ry="15" fill="#922b21" transform="rotate(20 8 5)"/><ellipse cx="0" cy="-8" rx="6" ry="10" fill="#e74c3c" opacity="0.45"/></g>
+        <g transform="translate(130,150)"><ellipse cx="0" cy="0" rx="11" ry="20" fill="#c0392b"/><ellipse cx="-9" cy="5" rx="9" ry="16" fill="#a93226" transform="rotate(-22 -9 5)"/><ellipse cx="9" cy="5" rx="9" ry="16" fill="#922b21" transform="rotate(22 9 5)"/><ellipse cx="0" cy="-10" rx="7" ry="11" fill="#e74c3c" opacity="0.5"/></g>
+        <g transform="translate(145,158)"><ellipse cx="0" cy="0" rx="10" ry="18" fill="#c0392b" transform="rotate(5)"/><ellipse cx="-8" cy="5" rx="8" ry="15" fill="#a93226" transform="rotate(-20 -8 5)"/><ellipse cx="8" cy="5" rx="8" ry="15" fill="#922b21" transform="rotate(20 8 5)"/><ellipse cx="0" cy="-8" rx="6" ry="10" fill="#e74c3c" opacity="0.45"/></g>
+        <g transform="translate(160,166)"><ellipse cx="0" cy="0" rx="10" ry="18" fill="#c0392b" transform="rotate(10)"/><ellipse cx="-8" cy="5" rx="8" ry="15" fill="#a93226" transform="rotate(-25 -8 5)"/><ellipse cx="8" cy="5" rx="8" ry="15" fill="#922b21" transform="rotate(25 8 5)"/><ellipse cx="0" cy="-8" rx="6" ry="10" fill="#e74c3c" opacity="0.45"/></g>
+      </svg>
+    </div>
+  </div>
+  <div id="petalsContainer"></div>
+</div>
+
+<!-- ═══════════════════════ PAGE 5 — PHOTO FRAME ═══════════════════════ -->
+<div id="page5" class="page velvet-bg">
+  <button class="back-btn" onclick="goPage(2)">← back</button>
+  <div class="frame-title">Sudhanshu & Neha</div>
+  <div class="frame-sub">a moment worth keeping forever</div>
+  <div class="photo-frame">
+    <div class="frame-border">
+      <div class="frame-inner">
+        <!--
+          ════ HOW TO ADD YOUR COUPLE PHOTO ════
+          1. Name your photo: couple.jpg
+          2. Put it in the SAME FOLDER as this index.html file
+          3. It will automatically appear in this frame!
+        -->
+        <img id="framePhoto" src="couple.jpg" alt="Sudhanshu and Neha"
+             onerror="this.style.opacity='0';document.getElementById('frameFallback').style.display='flex'"/>
+        <div class="frame-fallback" id="frameFallback" style="display:none">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="opacity:0.35"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="2" fill="currentColor"/><path d="M14 8 L16 4 L24 4 L26 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>add couple.jpg to the folder</span>
+        </div>
+      </div>
+    </div>
+    <div class="frame-caption">Sudhanshu & Neha zii</div>
+    <div class="frame-caption-sub">always &amp; forever ✦</div>
+  </div>
+</div>
+
+<script>
+/* ═══ NAVIGATION ═══ */
+function goPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+  window.scrollTo(0,0);
+  if(n===3) setLetterDate();
+  if(n===4) startPetals(); else stopPetals();
+}
+
+/* ═══ HERO ENVELOPE ═══ */
+function openHeroEnv(){
+  const wrap=document.getElementById('heroEnv');
+  if(wrap.dataset.busy) return;
+  wrap.dataset.busy='1';
+  wrap.classList.add('opening');
+  spawnSparkles();
+  setTimeout(()=>{
+    wrap.classList.remove('opening');
+    wrap.classList.add('floating');
+    delete wrap.dataset.busy;
+    goPage(2);
+  },950);
+}
+
+/* ═══ SPARKLES ═══ */
+function spawnSparkles(){
+  const wrap=document.getElementById('heroEnv');
+  const r=wrap.getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  const cols=['#f0d090','#e8a0a0','#fff','#c9a96e','#ffaaaa','#ffd700'];
+  for(let i=0;i<28;i++){
+    const s=document.createElement('div');
+    s.className='sparkle';
+    const a=(i/28)*Math.PI*2;
+    const d=55+Math.random()*100;
+    s.style.cssText=`left:${cx}px;top:${cy}px;background:${cols[i%cols.length]};--sx:${Math.cos(a)*d}px;--sy:${Math.sin(a)*d}px;animation-delay:${Math.random()*0.3}s`;
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1400);
+  }
+}
+
+/* ═══ DATE ═══ */
+function setLetterDate(){
+  const d=new Date();
+  document.getElementById('letterDate').textContent=
+    d.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+}
+
+/* ═══ PETAL RAIN ═══ */
+let _pi=null;
+const _pc=['#c0392b','#e74c3c','#a93226','#ff6b81','#ffaaaa','#e8c4c4','#ff9999'];
+function startPetals(){
+  stopPetals();
+  const c=document.getElementById('petalsContainer');
+  c.innerHTML='';
+  let n=0;
+  _pi=setInterval(()=>{
+    if(n>65){clearInterval(_pi);return;}
+    const p=document.createElement('div');
+    p.className='petal';
+    const sz=9+Math.random()*10;
+    const dur=3.5+Math.random()*4;
+    const delay=Math.random()*2;
+    const dx=(Math.random()-0.5)*110+'px';
+    const dr=Math.random()*400+'deg';
+    p.style.cssText=`left:${Math.random()*100}vw;top:-${sz*2}px;width:${sz}px;height:${sz*1.65}px;background:${_pc[Math.floor(Math.random()*_pc.length)]};--dx:${dx};--dr:${dr};animation-duration:${dur}s;animation-delay:${delay}s`;
+    c.appendChild(p);
+    n++;
+  },170);
+}
+function stopPetals(){
+  if(_pi){clearInterval(_pi);_pi=null;}
+  const c=document.getElementById('petalsContainer');
+  if(c) c.innerHTML='';
+}
+
+/* ═══ FRAME PHOTO LOAD ═══ */
+document.getElementById('framePhoto').addEventListener('load',function(){
+  document.getElementById('frameFallback').style.display='none';
+  this.style.opacity='1';
+});
+</script>
+</body>
+</html>
